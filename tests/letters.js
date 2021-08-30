@@ -58,13 +58,16 @@ QUnit.module('Тестируем функцию letters', function () {
 		assert.strictEqual(letters('фффффффффффп'), 'п');
 		assert.strictEqual(letters(''), '');
 		assert.strictEqual(letters('       мммм      '), '');
+		assert.strictEqual(letters('122222222222222223'), '13');
 
 		assert.strictEqual(letters('фффффффффффп', true), 'фп');
 		assert.strictEqual(letters('', true), '');
 		assert.strictEqual(letters('       мммм      ', true), ' м');
+		assert.strictEqual(letters('12222222221322222223', true), '123');
 
 		assert.strictEqual(letters('фффффффффффп', false), 'фп');
 		assert.strictEqual(letters('', false), '');
 		assert.strictEqual(letters('       мммм      ', false), 'м ');
+		assert.strictEqual(letters('12222222221322222223', false), '123');
 	});
 });

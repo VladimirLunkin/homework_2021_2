@@ -1,24 +1,27 @@
 'use strict';
 
-function reverseString(str) {
-  return str.split("").reverse().join("");
+const reverseString = (str) => {
+  return str.split('').reverse().join('');
 }
 
-function letters(str, direction) {
-  if (direction === false) str = reverseString(str);
+const letters = (str, direction) => {
+  let tempStr = (direction === false) ? reverseString(str) : str;
+  let resultStr = '';
 
-  let newStr = "";
+  for (let i = 1; i <= tempStr.length; ++i) {
+    const currSymbol = tempStr[i - 1];
 
-  for (let i = 0; i < str.length; ++i) {
-    if (str.indexOf(str[i], i + 1) == -1 || direction != undefined) {
-        newStr += str[i];
+    if (tempStr.indexOf(currSymbol, i) == -1 || direction != undefined) {
+        resultStr += currSymbol;
     }
 
-    const regexp = RegExp(`[${str[i]}]`, 'g');
-    str = str.slice(0, i + 1) + str.slice(i + 1).replace(regexp, '');
+    const regexp = RegExp(`[${currSymbol}]`, 'g');
+    tempStr = tempStr.slice(0, i) + tempStr.slice(i).replace(regexp, '');
   }
 
-  if (direction === false) newStr = reverseString(newStr);
+  if (direction === false) {
+    resultStr = reverseString(resultStr);
+  }
 
-  return newStr;
+  return resultStr;
 }
