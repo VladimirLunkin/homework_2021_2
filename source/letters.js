@@ -16,13 +16,21 @@ const reverseString = (str) => {
  * @return {string} - Новая строка без повторяющихся символов.
  */
 const letters = (str, direction) => {
+  if (typeof str !== "string" && typeof(str) !== "number") {
+    throw Error('the first argument is of type string or number');
+  }
+
+  if (!(typeof direction === 'boolean' || typeof direction === 'undefined')) {
+    throw Error('the second argument is optional boolean');
+  }
+
   let tempStr = (direction === false) ? reverseString(str) : str;
   let resultStr = '';
 
   for (let i = 1; i <= tempStr.length; ++i) {
     const currSymbol = tempStr[i - 1];
 
-    if (tempStr.indexOf(currSymbol, i) == -1 || direction != undefined) {
+    if (tempStr.indexOf(currSymbol, i) === -1 || direction !== undefined) {
         resultStr += currSymbol;
     }
 
