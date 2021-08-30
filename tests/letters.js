@@ -69,22 +69,6 @@ QUnit.module('Тестируем функцию letters', function () {
 		assert.strictEqual(letters('', false), '');
 		assert.strictEqual(letters('       мммм      ', false), 'м ');
 		assert.strictEqual(letters('12222222221322222223', false), '123');
-
-		assert.throws(
-		    function() {
-		      throw new Error( "boo" );
-		    },
-		    "optional description here"
-		  );
-
-		assert.throws(
-		    function() {
-		      letters(null)
-		    },
-				/the first argument is of type string or number/,
-				"nul");
-		// assert.strictEqual(letters(null, true), null);
-		// assert.strictEqual(letters(null, false), null);
 	});
 
 	QUnit.test('Неправильные типы аргументов', function (assert) {
