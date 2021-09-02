@@ -77,18 +77,18 @@ QUnit.module('Тестируем функцию letters', function () {
 				letters(null)
 			},
 			/the first argument is of type string or number/,
-			"null");
+			'null');
 		assert.throws(
 			function() {
-				letters("123", null)
+				letters('123', null)
 			},
 			/the second argument is optional boolean/,
-			"string, null");
+			'string, null');
 		assert.throws(
 			function() {
 				letters()
 			},
 			/the first argument is of type string or number/,
-			"no arguments");
+			'no arguments');
 		});
 });
