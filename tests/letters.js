@@ -74,19 +74,19 @@ QUnit.module('Тестируем функцию letters', function () {
     QUnit.test('Неправильные типы аргументов', function (assert) {
         assert.throws(
             function () {
-                letters(null)
+                letters(null);
             },
             /the first argument is of type string or number/,
             'null');
         assert.throws(
             function () {
-                letters('123', null)
+                letters('123', null);
             },
             /the second argument is optional boolean/,
             'string, null');
         assert.throws(
             function () {
-                letters()
+                letters();
             },
             /the first argument is of type string or number/,
             'no arguments');
